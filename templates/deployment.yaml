@@ -14,6 +14,6 @@ spec:
     spec:
       containers:
       - name: nginx
-        image: nginx:alpine
+        image: henryokiyi/cicd_portfolio
         ports:
         - containerPort: 80
