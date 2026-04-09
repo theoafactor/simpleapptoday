@@ -15,6 +15,6 @@ spec:
     spec:
       containers:
       - name: {{ .Values.frontendImage.name }}
-        image: {{ .Values.frontendImage.reposistory }}
+        image: {{ .Values.frontendImage.repository }}
         ports:
         - containerPort: 80
