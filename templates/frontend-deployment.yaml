@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name:  {{ .Values.frontendImage.name }}
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app:  {{ .Values.frontendImage.name }}
+  template:
+    metadata:
+      labels:
+        app:  {{ .Values.frontendImage.name }}
+    spec:
+      containers:
+      - name: {{ .Values.frontendImage.name }}
+        image: {{ .Values.frontendImage.reposistory }}
+        ports:
+        - containerPort: 80

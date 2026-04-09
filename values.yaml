@@ -4,11 +4,19 @@
 
 replicaCount: 1
 
-image:
+backendImage:
+  name: "backend"
   repository: nginx
   pullPolicy: IfNotPresent
   # Overrides the image tag whose default is the chart appVersion.
-  tag: ""
+  tag: "latest"
+
+frontendImage:
+  name: "frontend"
+  repository: henryokiyi/cicd_portfolio
+  pullPolicy: IfNotPresent
+  # Overrides the image tag whose default is the chart appVersion.
+  tag: "latest"
 
 imagePullSecrets: []
 nameOverride: ""
