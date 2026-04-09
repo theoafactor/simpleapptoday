@@ -1,0 +1,18 @@
+/apiVersion: argoproj.io/v1aplha1
+kind: Application 
+# Add these annotations to your Application YAML
+metadata:
+  name: installation-app
+  namespace: argocd
+  annotations:
+    # Tell Image Updater the name of the image to track
+    argocd-image-updater.argoproj.io/image-list: >-
+      henryokiyi/cicd_portfolio,
+      nginx
+      
+    # Only pick up tags that look like v1.2.3 (semantic versioning)
+    argocd-image-updater.argoproj.io/henryokiyi/cicd_portfolio.update-strategy: semver
+    argocd-image-updater.argoproj.io/nginx.update-strategy: semver
+    
+    # Write the new tag back to Git automatically
+    argocd-image-updater.argoproj.io/write-back-method: git
